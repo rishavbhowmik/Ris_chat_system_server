@@ -23,4 +23,7 @@
     socket.on('connected', (data)=>{
         socket.emit('verify', {user_token:{_id:'12345678'}})
     })
+    socket.on('ready', (data)=>{
+        alert('ready')
+    })
 </script>
