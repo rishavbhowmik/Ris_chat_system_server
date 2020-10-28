@@ -1,0 +1,28 @@
+{
+  "name": "chat_system_server",
+  "version": "1.0.0",
+  "description": "chat server built on chat_system_bk driver & socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://rishavbhowmiktgs@bitbucket.org/rishavbhowmiktgs/chat_system_server.git"
+  },
+  "keywords": [
+    "rishav",
+    "tgs",
+    "chats",
+    "socket.io",
+    "net_FM"
+  ],
+  "author": "Rishav Bhowmik",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/rishavbhowmiktgs/chat_system_server#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.2",
+    "socket.io": "^2.3.0"
+  }
+}
