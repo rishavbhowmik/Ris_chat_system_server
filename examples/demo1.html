@@ -10,20 +10,29 @@
         <div>
             <h3>Status : <i id="status">Connecting</i> </h3>
         </div>
+        <div id="msgs"></div>
     </main>
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.dev.min.js"></script>
 <script>
     const main = document.getElementById('main'),
-    status = document.getElementById('status')
+    status = document.getElementById('status'),
+    msgs = document.getElementById('msgs')
 
     const socket = io('http://localhost:8080', {transports: ['websocket']})
 
     socket.on('connected', (data)=>{
-        socket.emit('verify', {user_token:{_id:'12345678'}})
+        socket.emit('verify', {user_token:{_id:'123456'}})
     })
     socket.on('ready', (data)=>{
         alert('ready')
+        const req_id = `${Date.now()}${Math.random()}`
+        socket.emit('get_messages_bothway_pleanty', {req_id} )
+        console.log(Date.now())
+    })
+    socket.on('get_messages_bothway_pleanty', (data)=>{
+        console.log(Date.now())
+        msgs.innerText = JSON.stringify(data)
     })
 </script>
