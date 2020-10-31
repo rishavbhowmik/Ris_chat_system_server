@@ -16,7 +16,6 @@ const sock_routes = (socket) => {
         if (typeof user.get_user_id() != 'string') return
         user.send_msg(data)
         .then((message_id)=>{
-            console.log("return", 'send_msg/'+req_id, {req_id, message_id});
             socket.emit('send_msg/'+req_id, {req_id, message_id})
         })
     })
@@ -77,7 +76,7 @@ const sock_routes = (socket) => {
                 message_row.data = message_row.data.get_all_lines()
                 return message_row
             })
-            socket.emit('get_messages_bothway_pleanty_of_sender', {req_id, results}) //rec
+            socket.emit('get_messages_bothway_pleanty_of_sender/'+req_id, {req_id, results}) //rec
         })
     })
     socket.on('get_messages_bothway_post_id_of_sender', data =>{//rec
@@ -113,7 +112,7 @@ const sock_routes = (socket) => {
                 message_row.data = message_row.data.get_all_lines()
                 return message_row
             })
-            socket.emit('get_messages_oneway_pleanty_of_sender', {req_id, results}) //rec
+            socket.emit('get_messages_oneway_pleanty_of_sender/'+req_id, {req_id, results}) //rec
         })
     })
     socket.on('get_messages_oneway_post_id_of_sender', data =>{//rec
