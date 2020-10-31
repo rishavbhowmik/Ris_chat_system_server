@@ -23,7 +23,7 @@ class UserSession{
         const reciver_id = data.reciver_id
         const message = new chat_driver.MessageObject()
         data.lines.forEach(line => {
-            message.add_line(line.header, line.data)
+            message.add_line(line.header, line.body)
         });
         const message_id = await chat_driver.SendMessage.send_message(sender_id, reciver_id, message)
         return message_id

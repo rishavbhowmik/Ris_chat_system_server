@@ -11,11 +11,13 @@ const sock_routes = (socket) => {
         socket.emit('ready', '')
     })
     socket.on('send_msg', (data)=>{
+        console.log(data);
         const req_id = data.req_id;
         if (typeof user.get_user_id() != 'string') return
         user.send_msg(data)
         .then((message_id)=>{
-            socket.emit('msg_sent', {req_id, message_id})
+            console.log("return", 'send_msg/'+req_id, {req_id, message_id});
+            socket.emit('send_msg/'+req_id, {req_id, message_id})
         })
     })
     socket.on('get_messages_bothway_pleanty', data =>{
