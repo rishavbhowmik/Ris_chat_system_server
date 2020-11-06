@@ -100,7 +100,7 @@ const sock_routes = (socket) => {
                 message_row.data = message_row.data.get_all_lines()
                 return message_row
             })
-            socket.emit('get_messages_bothway_range_id_of_sender', {req_id, results}) //rec
+            socket.emit('get_messages_bothway_range_id_of_sender/'+req_id, {req_id, results}) //rec
         })
     })
     socket.on('get_messages_oneway_pleanty_of_sender', data =>{//rec
@@ -124,7 +124,7 @@ const sock_routes = (socket) => {
                 message_row.data = message_row.data.get_all_lines()
                 return message_row
             })
-            socket.emit('get_messages_oneway_post_id_of_sender', {req_id, results}) //rec
+            socket.emit('get_messages_oneway_post_id_of_sender/'+req_id, {req_id, results}) //rec
         })
     })
     socket.on('get_messages_oneway_range_id_of_sender', data =>{//rec
