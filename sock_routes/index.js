@@ -52,7 +52,7 @@ const sock_routes = (socket) => {
                 message_row.data = message_row.data.get_all_lines()
                 return message_row
             })
-            socket.emit('get_messages_bothway_post_id', {req_id, results}) //rec
+            socket.emit('get_messages_bothway_post_id/'+req_id, {req_id, results}) //rec
         })
     })
     socket.on('get_messages_bothway_range_id', data =>{//rec
